@@ -1,4 +1,27 @@
 {
+  "name": "cdms_cypress",
+  "version": "0.0.0-development",
+  "description": "This is an CDMS app used to showcase Cypress.io End-to-End (E2E) testing. For a full reference of our documentation, go to https://docs.cypress.io",
+  "main": "index.js",
+  "scripts": {
+    "cy:verify": "cypress verify",
+    "cy:info": "cypress info",
+    "cy:version": "cypress version",
+    "cy:open": "cypress open",
+    "test": "cypress run",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mobarasa/cdms_cypress.git"
+  },
+  "author": "Michael Barasa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mobarasa/cdms_cypress/issues"
+  },
+  "homepage": "https://github.com/mobarasa/cdms_cypress#readme",
   "devDependencies": {
     "cypress": "^13.15.0"
   }
