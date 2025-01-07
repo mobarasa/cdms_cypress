@@ -1,3 +1,6 @@
+# Laravel API testing
+View the readme [here](cdms_cypress/README.md)
+
 # Cypress Test Automation Framework for CDMS Demo
 
 This repository contains a Cypress-based test automation framework for the CDMS Demo application (https://demo.cdms.co.ke). It provides a structured approach to writing, organizing, and running automated tests for the CDMS Demo web application.
