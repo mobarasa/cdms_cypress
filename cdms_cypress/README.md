@@ -55,7 +55,7 @@ php artisan migrate:fresh --seed
 
 6. **Install Sanctum**
 ```bash
-php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+php artisan install:api
 ```
 
 ## 🔧 Configuration
@@ -82,7 +82,7 @@ POST /api/login
 Content-Type: application/json
 
 {
-    "email": "user@example.com",
+    "email": "test@example.com",
     "password": "password123"
 }
 ```
@@ -90,12 +90,12 @@ Content-Type: application/json
 **Success Response:**
 ```json
 {
-    "token": "1|XYZ123...",
-    "user": {
-        "id": 1,
-        "name": "User Name",
-        "email": "user@example.com"
-    }
+    "success": true,
+    "data": {
+        "token": "3|95SbCHfQW1A8iYWMRubC1GkqWlw2mMn9UKKqUpoW3df10167",
+        "name": "Test User"
+    },
+    "message": "User login successfully."
 }
 ```
 
@@ -120,7 +120,36 @@ python -m unittest test_login_api.py -v
 ### Using Postman
 1. Import the provided Postman collection from `postman/collection.json`
 2. Update the environment variables
+ - In Postman, click the "Environment" dropdown (typically says "No Environment")
+ - Click "New"
+ - Create an environment named "Laravel Local"
+ - Add these variables:
+    ```
+    base_url: http://localhost:8000/api
+    token: [leave empty]
+    ```
+ - Click "Save"
+ - Select your new environment from the dropdown
 3. Run the requests
+ - Make sure your Laravel server is running (php artisan serve)
+ - In Postman, expand the "Authentication" folder
+ - Run the requests in this order:
+    ```
+    "Login" - should return a token
+    "Invalid Login" - should return an error
+    "Logout" - should successfully logout
+    ```
+4. Test Features
+ - The collection includes automatic token handling
+ - Successful login automatically saves the token
+ - All tests run automatically after each request
+ - Tests verify response status codes and data structure
+
+5. Collection Runner
+ - Click "Runner" in Postman
+ - Select your collection
+ - Click "Run Laravel Auth API"
+ - View the test results
 
 ## 🔍 Running the Application
 
